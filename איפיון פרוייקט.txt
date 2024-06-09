@@ -1,0 +1,28 @@
+אפיון פרוייקט:
+"ניהול אירוע" - "Event Management"
+ 
+סוגי משתמשים - "RoleType"
+
+user: 
+משתמש לא רשום, יכול:
+* ליצור רק אירוע אחד לתקופה מוגבלת של שבועיים \\  create event (post) 
+
+businessUser:
+משתמש רשום (עסקי), יכול:
+* ליצור אירועים ללא הגבלה \\ create event (post)
+* לערוך אירועים \\ edit event (put)
+* למחוק אירועים \\ delete event (delete)
+* לקבל את האירוע\ים שלו \\ get event or get all events (get)
+* לקבל את פרטיו ולערוך את פרטיו \\ GET and PUT user by Id
+* למחוק את עצמו \\ delete user (delete)
+
+admin:
+יכול את כל מה שמשתמש עסקי יכול וגם:
+* לערוך אירועים אחרים (משתמש לא רשום, ועסקי) \\ edit event (put)
+* למחוק אירועים של משתמשים אחרים (משתמש לא רשום, ועסקי) \\ delete event (delete)
+* לערוך משתמשים אחרים (משתמש לא רשום, ועסקי) \\  edit user( put)
+* למחוק משתמשים אחרים (משתמש לא רשום, ועסקי) \\ delete user (delete)
+
+master:
+יכול את כל מה שadmin יכול וגם:
+*למחוק אדמין 
