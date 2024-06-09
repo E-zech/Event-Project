@@ -50,7 +50,7 @@ app.use(morgan(':coloredStatus :response-time ms'));
 app.use(logMiddleware);
 
 // Routes
-app.get('/', (req, res) => res.send(`Welcome 😊 \n Project Event Mangment, 2024`)); // Base route
+app.get('/', (req, res) => res.send(`Welcome 😊 \n Project Event Management, 2024`)); // Base route
 
 userRoutes(app);
 
