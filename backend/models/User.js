@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
+    // fullName is an object which nested 2 objects: firstName and lastName
     fullName: {
         firstName: {
             type: String,
@@ -23,6 +24,7 @@ const userSchema = new mongoose.Schema({
         unique: true,
     },
 
+    // password will be hashed when created (login.js) OR can be hashed here 
     password: {
         type: String,
         required: true,
@@ -35,12 +37,12 @@ const userSchema = new mongoose.Schema({
 
     imgSrc: {
         type: String,
-        maxlength: 555,
+        maxlength: 600,
     },
 
     imgAlt: {
         type: String,
-        maxlength: 100,
+        maxlength: 200,
     },
 
     createdAt: {
@@ -57,8 +59,8 @@ const User = mongoose.model("users", userSchema);
 export default User;
 
 export const RoleTypes = {
-    user: 10,
-    businessUser: 20,
-    admin: 30,
-    master: 40,
+    user: 10, // non-registered user 
+    businessUser: 20, // registered user
+    admin: 30, // manager/admin
+    master: 40, // developers
 };
