@@ -11,7 +11,7 @@ const signup = app => {
             // if the validation failed extarct the message from the err and log it
             if (error) {
                 const errorObj = error.details.map(err => err.message.replace(/['"]/g, ''));
-                console.log(errorObj);
+                res.locals.errorMessage = errorObj.join(', '); // Store the custom error message
                 return res.status(400).send(errorObj);
             }
 
@@ -24,6 +24,7 @@ const signup = app => {
             const existingUser = await User.findOne({ email });
 
             if (existingUser) {
+                res.locals.errorMessage = 'Email already exists';
                 return res.status(400).send('Email is already exists');
             }
 
@@ -34,11 +35,11 @@ const signup = app => {
             });
 
             await newUser.save();
-
             // sending a message *! IMPORTANT DO NOT SEND newUser to the front (it contains the password inside)!*
             res.send('You have successfully signed up');
         }
         catch (err) {
+            res.locals.errorMessage = 'Internal Server Error: backend/handlers/user/signup.js';
             // only for Dev convinece i'll show where the error come from, need to delete while production 
             return res.status(500).send('Internal Server Error: backend/handlers/user/signup.js');
         }

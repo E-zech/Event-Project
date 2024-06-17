@@ -8,8 +8,8 @@ import deleteUser from '../handlers/user/deleteUser.js';
 export default function userRoutes(app) {
     signup(app);
     login(app);
-    getUser(app);
     getAllUsers(app);
+    getUser(app);
     editUser(app);
     deleteUser(app);
 }  

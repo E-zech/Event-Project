@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
 
     roleType: {
         type: Number,
-        default: 10,
+        default: 20,
     },
 
     imgSrc: {
@@ -49,17 +49,13 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-
-    updatedAt: {
-        type: Date,
-    }
 });
 
 const User = mongoose.model("users", userSchema);
 export default User;
 
 export const RoleTypes = {
-    user: 10, // non-registered user 
+    none: 10, // non-registered user 
     businessUser: 20, // registered user
     admin: 30, // manager/admin
     master: 40, // developers

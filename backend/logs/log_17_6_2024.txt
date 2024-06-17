@@ -1,0 +1,80 @@
+Date: 17/06/2024
+Time: 15:22:54
+Method: GET
+Route: /users/all
+Status Code: 401
+Error: Unauthorized
+Error Message: Not authorized, user is not an Admin.
+
+Date: 17/06/2024
+Time: 15:23:04
+Method: GET
+Route: /users/all
+Status Code: 401
+Error: Unauthorized
+Error Message: Not authorized, user is not an Admin.
+
+Date: 17/06/2024
+Time: 15:24:44
+Method: GET
+Route: /user/666d4ca24cebac9725600fc6
+Status Code: 401
+Error: Unauthorized
+Error Message: Authentication failed, token is not valid.
+
+Date: 17/06/2024
+Time: 15:25:16
+Method: GET
+Route: /user/666d4ca24cebac9725600fc6
+Status Code: 401
+Error: Unauthorized
+Error Message: Authentication failed, token is not valid.
+
+Date: 17/06/2024
+Time: 15:25:20
+Method: GET
+Route: /user/666d4ca24cebac9725600fc6
+Status Code: 401
+Error: Unauthorized
+Error Message: Authentication failed, token is not valid.
+
+Date: 17/06/2024
+Time: 15:25:25
+Method: GET
+Route: /user/66702a6d97dab13e3bac9d71
+Status Code: 401
+Error: Unauthorized
+Error Message: Authentication failed, token is not valid.
+
+Date: 17/06/2024
+Time: 15:25:27
+Method: GET
+Route: /user/66702a6d97dab13e3bac9d71
+Status Code: 401
+Error: Unauthorized
+Error Message: Authentication failed, token is not valid.
+
+Date: 17/06/2024
+Time: 15:25:49
+Method: GET
+Route: /user/666d4ca24cebac9725600fc6
+Status Code: 403
+Error: Forbidden
+Error Message: User not found.
+
+Date: 17/06/2024
+Time: 16:04:41
+Method: PUT
+Route: /user/66702a7e97dab13e3bac9d74
+Status Code: 400
+Error: Bad Request
+Error Message: .
+
+Date: 17/06/2024
+Time: 16:04:56
+Method: PUT
+Route: /user/66702a7e97dab13e3bac9d74
+Status Code: 400
+Error: Bad Request
+Error Message: .
+
