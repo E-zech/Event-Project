@@ -17,14 +17,16 @@ async function getContent(res) {
         const cssContent = await readFileSync(cssPath);
         const keyFramesContent = await readFileSync(keyFramesPath);
 
-        return `
+        const page404 = `
       ${htmlContent}
       <style>${cssContent}</style>
       <style>${keyFramesContent}</style>
     `;
+        res.locals.errorMessage = 'Route was not found';
+        res.status(404).send(page404);
 
     } catch (error) {
-        res.status(404).send('404 Page Was Not Found');
+        res.status(500).send('404 Page Was Not Found');
     }
 }
 

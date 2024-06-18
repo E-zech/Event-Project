@@ -30,8 +30,8 @@ const login = app => {
             };
 
             const token = jwt.sign({
-                userId: user._id,
-                roleType: user.roleType
+                tokenUserId: user._id,
+                tokenUserRoleType: user.roleType
             }, process.env.JWT_SECRET, { expiresIn: '5h' }); // in production change to '1h' or more
 
             res.send({

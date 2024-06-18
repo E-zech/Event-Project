@@ -8,7 +8,7 @@ export const UserValidation = Joi.object({
     email: Joi.string().email().lowercase().trim().label('Email').required(),
     password: Joi.string()
         .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{9,}$/)
-        .message('Password must be 9 characters long and include 1 uppercase letter, 1 lowercase letter, 1 special character, and numbers.')
+        .message('Password must be 9 characters long and include 1 uppercase letter, 1 lowercase letter, 1 special character, and numbers')
         .label('Password')
         .required(),
     roleType: Joi.number().integer().label('Role Type').default(10),
@@ -20,7 +20,7 @@ export const UserLoginValidation = Joi.object({
     email: Joi.string().email().lowercase().trim().label('Email').required(),
     password: Joi.string()
         .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{9,}$/)
-        .message('Password must be 9 characters long and include 1 uppercase letter, 1 lowercase letter, 1 special character, and numbers.')
+        .message('Password must be 9 characters long and include 1 uppercase letter, 1 lowercase letter, 1 special character, and numbers')
         .label('Password')
         .required()
 });

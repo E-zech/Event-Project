@@ -1,7 +1,23 @@
+import User from '../../models/User.js';
+import { adminGuard, guard } from '../../middleware/guard.js';
+import { authorizeUser } from '../../middleware/authorizeUser.js';
+
+const deleteUser = app => {
+    app.delete('/user/:id', guard, authorizeUser, async (req, res) => {
+        try {
 
 
-const deleteEvent = app => {
+
+
+
+        }
+        catch (err) {
+            res.locals.errorMessage = 'Internal Server Error: backend/handlers/users/deleteUser.js';
+            // only for Dev convinece i'll show where the error come from, need to delete while production 
+            return res.status(500).send('Internal Server Error: backend/handlers/user/deleteUser.js');
+        }
+    })
 
 }
 
-export default deleteEvent; 
+export default deleteUser; 

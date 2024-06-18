@@ -6,8 +6,8 @@ const logMiddleware = (req, res, next) => {
     let content = '';
     content += `Date: ${moment().format("DD/MM/YYYY")}\n`;
     content += `Time: ${moment().format("HH:mm:ss")}\n`;
-    content += `Method: ${req.method}\n`;
     content += `Route: ${req.url}\n`;
+    content += `Method: ${req.method}\n`;
 
     res.locals.errorMessage = '';
 

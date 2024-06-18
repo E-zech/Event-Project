@@ -11,7 +11,9 @@ const signup = app => {
             // if the validation failed extarct the message from the err and log it
             if (error) {
                 const errorObj = error.details.map(err => err.message.replace(/['"]/g, ''));
-                res.locals.errorMessage = errorObj.join(', '); // Store the custom error message
+                // Store the custom error message
+                res.locals.errorMessage = `\n${errorObj.join(', \n')}`;
+                // Send the custom error message
                 return res.status(400).send(errorObj);
             }
 

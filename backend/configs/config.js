@@ -12,7 +12,7 @@ export const getUserFromTKN = (req, res) => {
         return token;
     }
     catch (err) {
-        console.error(chalk.red("Error:", error.message));
+        console.error(chalk.red("Error:", err.message));
         // only for Dev convinece i'll show where the error come from, need to delete while production 
         return res.status(401).send('User not Authorized: backend/configs/config.js');
     }

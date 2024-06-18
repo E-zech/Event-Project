@@ -1,5 +1,4 @@
-import User, { RoleTypes } from '../../models/User.js';
-import { getUserFromTKN } from '../../configs/config.js';
+import User from '../../models/User.js';
 import { adminGuard, guard } from '../../middleware/guard.js';
 
 const getAllUsers = app => {
