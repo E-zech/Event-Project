@@ -39,9 +39,9 @@ export const guard = async (req, res, next) => {
 
 // export const businessGuard = (req, res, next) => { // if the user from the token is business/admin/master then he can pass the guard.
 //     try {
-//         const { roleType } = getUserFromTKN(req, res);
+//         const { tokenUserRoleType } = getUserFromTKN(req, res);
 
-//         if (roleType === RoleTypes.business || roleType === RoleTypes.admin || roleType === RoleTypes.master) {
+//         if (tokenUserRoleType === RoleTypes.business || tokenUserRoleType === RoleTypes.admin || tokenUserRoleType === RoleTypes.master) {
 //             next();
 //         } else {
 //             return res.status(401).send('User not authorized / guard.js > businessGuard');
@@ -54,9 +54,9 @@ export const guard = async (req, res, next) => {
 
 export const adminGuard = (req, res, next) => {// if the user from the token is admin then he can pass the guard.
     try {
-        const { roleType } = getUserFromTKN(req, res);
+        const { tokenUserRoleType } = getUserFromTKN(req, res);
 
-        if (roleType === RoleTypes.admin || roleType === RoleTypes.master) {
+        if (tokenUserRoleType === RoleTypes.admin || tokenUserRoleType === RoleTypes.master) {
             next();
         } else {
             res.locals.errorMessage = 'Not authorized, user is not an Admin';
@@ -70,9 +70,9 @@ export const adminGuard = (req, res, next) => {// if the user from the token is 
 
 // export const masterGuard = (req, res, next) => {// if the user from the token is master then he can pass the guard.
 //     try {
-//         const { roleType } = getUserFromTKN(req, res);
+//         const { tokenUserRoleType } = getUserFromTKN(req, res);
 
-//         if (roleType === RoleTypes.master) {
+//         if (tokenUserRoleType === RoleTypes.master) {
 //             next();
 //         } else {
 //             res.locals.errorMessage = 'Not authorized, user is not a Master';

@@ -1,22 +1,12 @@
-import User from '../../models/User.js';
 import { guard } from '../../middleware/guard.js';
 import { authorizeUser } from '../../middleware/authorizeUser.js';
+import { isActive } from '../../middleware/isActive.js';
 
 const getUser = app => {
-    app.get('/user/:id', guard, authorizeUser, async (req, res) => {
+    app.get('/user/:id', guard, authorizeUser, isActive, async (req, res) => {
         try {
-            const { paramsId } = res.locals.userAccess;
-
-            const userByParams = await User.findOne({
-                _id: paramsId,
-                active: true
-            }).select('-password');
-
-            if (!userByParams) {
-                res.locals.errorMessage = 'User not found';
-                return res.status(403).send('User not found');
-            }
-            res.send(userByParams);
+            const { user } = res.locals.userAccess;
+            res.send(user);
         }
         catch (err) {
             res.locals.errorMessage = 'Internal Server Error: backend/handlers/user/getUser.js';
@@ -25,5 +15,4 @@ const getUser = app => {
         }
     })
 }
-
 export default getUser; 

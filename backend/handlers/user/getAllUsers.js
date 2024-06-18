@@ -4,7 +4,7 @@ import { adminGuard, guard } from '../../middleware/guard.js';
 const getAllUsers = app => {
     app.get('/users/all', guard, adminGuard, async (req, res) => {
         try {
-            const allUsers = await User.find().select('-password');
+            const allUsers = await User.find({ active: true }).select('-password');
             if (!allUsers || allUsers.length === 0) {
                 res.locals.errorMessage = 'No users found in the database';
                 return res.status(404).send('The request could not be completed because no users were found.');

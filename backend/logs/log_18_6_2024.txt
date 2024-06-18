@@ -94,3 +94,43 @@ Status Code: 404
 Error: Not Found
 Error Message: User not found in the Database.
 
+Date: 18/06/2024
+Time: 14:28:48
+Route: /users/all
+Method: GET
+Status Code: 401
+Error: Unauthorized
+Error Message: Not authorized, user is not an Admin.
+
+Date: 18/06/2024
+Time: 14:29:08
+Route: /users/all
+Method: GET
+Status Code: 401
+Error: Unauthorized
+Error Message: Not authorized, user is not an Admin.
+
+Date: 18/06/2024
+Time: 14:30:28
+Route: /users/all
+Method: GET
+Status Code: 401
+Error: Unauthorized
+Error Message: Not authorized, user is not an Admin.
+
+Date: 18/06/2024
+Time: 14:31:11
+Route: /users/all
+Method: GET
+Status Code: 401
+Error: Unauthorized
+Error Message: Not authorized, user is not an Admin.
+
+Date: 18/06/2024
+Time: 16:53:15
+Route: /user/66716972ee31f786b893ea21
+Method: GET
+Status Code: 404
+Error: Not Found
+Error Message: User has been soft deleted.
+

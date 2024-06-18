@@ -1,15 +1,15 @@
-import User from '../../models/User.js';
-import { adminGuard, guard } from '../../middleware/guard.js';
+import { guard } from '../../middleware/guard.js';
 import { authorizeUser } from '../../middleware/authorizeUser.js';
+import { isActive } from '../../middleware/isActive.js';
 
 const deleteUser = app => {
-    app.delete('/user/:id', guard, authorizeUser, async (req, res) => {
+    app.delete('/user/:id', guard, authorizeUser, isActive, async (req, res) => {
         try {
+            const { user } = res.locals.userAccess;
+            user.set({ active: false });
 
-
-
-
-
+            await user.save();
+            res.send('User has been deleted');
         }
         catch (err) {
             res.locals.errorMessage = 'Internal Server Error: backend/handlers/users/deleteUser.js';
@@ -20,4 +20,6 @@ const deleteUser = app => {
 
 }
 
-export default deleteUser; 
+export default deleteUser;
+
+
