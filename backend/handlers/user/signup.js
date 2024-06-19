@@ -38,7 +38,7 @@ const signup = app => {
 
             await newUser.save();
             // sending a message *! IMPORTANT DO NOT SEND newUser to the front (it contains the password inside)!*
-            res.send('You have successfully signed up');
+            res.status(200).send('You have successfully signed up');
         }
         catch (err) {
             res.locals.errorMessage = 'Internal Server Error: backend/handlers/user/signup.js';

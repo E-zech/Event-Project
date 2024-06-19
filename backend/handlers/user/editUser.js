@@ -1,6 +1,6 @@
 import User, { RoleTypes } from '../../models/User.js';
 import { authorizeUser } from '../../middleware/authorizeUser.js';
-import { UserValidationWithoutPassword } from '../../validation/userJoi.js'; // Ensure this path is correct
+import { UserValidationWithoutPassword } from '../../validation/userJoi.js';
 import { guard } from '../../middleware/guard.js';
 import { isActive } from '../../middleware/isActive.js';
 
@@ -20,9 +20,11 @@ const editUser = app => {
 
             // Proceed with updating user details
             value.roleType = user.roleType;
+
             user.set(value);
             await user.save();
-            res.send(user);
+
+            res.status(200).send(user);
         }
         catch (err) {
             res.locals.errorMessage = 'Internal Server Error: backend/handlers/users/editUser.js';

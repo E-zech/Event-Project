@@ -9,7 +9,7 @@ const deleteUser = app => {
             user.set({ active: false });
 
             await user.save();
-            res.send('User has been deleted');
+            res.status(200).send('User has been deleted');
         }
         catch (err) {
             res.locals.errorMessage = 'Internal Server Error: backend/handlers/users/deleteUser.js';

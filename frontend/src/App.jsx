@@ -10,15 +10,16 @@ export const GeneralContext = createContext();
 
 export default function App() {
   return (
-
-    <GeneralContext.Provider // value={{ navigate }}
-    >
+    <>
       <Navbar />
       <Router />
-      <Login />
       <Footer />
-    </GeneralContext.Provider>
+    </>
+
   );
 }
 
 
+// <GeneralContext.Provider> 
+
+// </GeneralContext.Provider>

@@ -6,7 +6,7 @@ const getUser = app => {
     app.get('/user/:id', guard, authorizeUser, isActive, async (req, res) => {
         try {
             const { user } = res.locals.userAccess;
-            res.send(user);
+            res.status(200).send(user);
         }
         catch (err) {
             res.locals.errorMessage = 'Internal Server Error: backend/handlers/user/getUser.js';

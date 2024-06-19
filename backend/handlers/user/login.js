@@ -34,7 +34,7 @@ const login = app => {
                 tokenUserRoleType: user.roleType
             }, process.env.JWT_SECRET, { expiresIn: '5h' }); // in production change to '1h' or more
 
-            res.send({
+            res.status(200).send({
                 message: `Hey ${user.fullName.firstName}, you have successfully logged in.`,
                 token
             });

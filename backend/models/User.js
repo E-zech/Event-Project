@@ -60,8 +60,8 @@ const User = mongoose.model("users", userSchema);
 export default User;
 
 export const RoleTypes = {
-    none: 10, // non-registered user 
-    business: 20, // registered user
+    none: 10, // non-business user 
+    business: 20, // business user
     admin: 30, // manager/admin
     master: 40, // developers
 };
