@@ -1,0 +1,104 @@
+Date: 28/06/2024
+Time: 10:59:02
+Route: /signup
+Method: POST
+Status Code: 400
+Error: Bad Request
+Error Message: Email already exists.
+
+Date: 28/06/2024
+Time: 10:59:42
+Route: /signup
+Method: POST
+Status Code: 400
+Error: Bad Request
+Error Message: Email already exists.
+
+Date: 28/06/2024
+Time: 12:09:32
+Route: /login
+Method: POST
+Status Code: 500
+Error: Internal Server Error
+Error Message: Internal Server Error: backend/handlers/user/login.js.
+
+Date: 28/06/2024
+Time: 12:14:44
+Route: /users/undefined
+Method: GET
+Status Code: 404
+Error: Not Found
+Error Message: Route was not found.
+
+Date: 28/06/2024
+Time: 12:14:46
+Route: /users/undefined
+Method: GET
+Status Code: 404
+Error: Not Found
+Error Message: Route was not found.
+
+Date: 28/06/2024
+Time: 12:14:56
+Route: /users/undefined
+Method: GET
+Status Code: 404
+Error: Not Found
+Error Message: Route was not found.
+
+Date: 28/06/2024
+Time: 12:15:11
+Route: /users/undefined
+Method: GET
+Status Code: 404
+Error: Not Found
+Error Message: Route was not found.
+
+Date: 28/06/2024
+Time: 12:15:57
+Route: /users/undefined
+Method: GET
+Status Code: 404
+Error: Not Found
+Error Message: Route was not found.
+
+Date: 28/06/2024
+Time: 12:16:45
+Route: /users/undefined
+Method: GET
+Status Code: 404
+Error: Not Found
+Error Message: Route was not found.
+
+Date: 28/06/2024
+Time: 12:27:07
+Route: /user/undefined
+Method: GET
+Status Code: 400
+Error: Bad Request
+Error Message: Invalid user ID in the URL params.
+
+Date: 28/06/2024
+Time: 12:27:10
+Route: /user/undefined
+Method: GET
+Status Code: 400
+Error: Bad Request
+Error Message: Invalid user ID in the URL params.
+
+Date: 28/06/2024
+Time: 12:27:35
+Route: /user/undefined
+Method: GET
+Status Code: 400
+Error: Bad Request
+Error Message: Invalid user ID in the URL params.
+
+Date: 28/06/2024
+Time: 12:28:10
+Route: /user/undefined
+Method: GET
+Status Code: 400
+Error: Bad Request
+Error Message: Invalid user ID in the URL params.
+

@@ -35,7 +35,7 @@ const login = app => {
             }, process.env.JWT_SECRET, { expiresIn: '5h' }); // in production change to '1h' or more
 
             res.status(200).send({
-                message: `Hey ${user.fullName.firstName}, you have successfully logged in.`,
+                message: `Hey ${user.firstName}, you have successfully logged in.`,
                 token
             });
 

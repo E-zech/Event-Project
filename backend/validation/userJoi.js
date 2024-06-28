@@ -1,10 +1,8 @@
 import Joi from 'joi';
 
 export const UserValidation = Joi.object({
-    fullName: Joi.object({
-        firstName: Joi.string().min(2).max(30).label('First Name').required(),
-        lastName: Joi.string().min(2).max(30).label('Last Name').required(),
-    }).required(),
+    firstName: Joi.string().min(2).max(30).label('First Name').required(),
+    lastName: Joi.string().min(2).max(30).label('Last Name').required(),
     email: Joi.string().email().lowercase().trim().label('Email').required(),
     password: Joi.string()
         .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{9,}$/)
@@ -13,7 +11,7 @@ export const UserValidation = Joi.object({
         .required(),
     roleType: Joi.number().integer().label('Role Type').default(10),
     imgSrc: Joi.string().uri().max(600).label('Image Source').allow(''),
-    imgAlt: Joi.string().max(200).label('Image Alternative').allow(''),
+    imgAlt: Joi.string().min(5).max(200).label('Image Alternative').allow(''),
 });
 
 export const UserLoginValidation = Joi.object({

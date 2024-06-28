@@ -2,19 +2,19 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
     // fullName is an object which nested 2 objects: firstName and lastName
-    fullName: {
-        firstName: {
-            type: String,
-            required: true,
-            trim: true,
-        },
 
-        lastName: {
-            type: String,
-            required: true,
-            trim: true,
-        }
+    firstName: {
+        type: String,
+        required: true,
+        trim: true,
     },
+
+    lastName: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+
 
     email: {
         type: String,
