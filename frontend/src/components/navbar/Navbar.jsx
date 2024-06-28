@@ -1,7 +1,13 @@
 import React from 'react';
+import { useContext, useState } from 'react';
+import { GeneralContext } from '../../App';
 import { Link } from 'react-router-dom';
+import { checkPermissions, pages } from '../../utils';
 
 export default function Navbar() {
+    const { user, setUser, logout, userRoleType, setUserRoleType } = useContext(GeneralContext);
+    console.log(userRoleType)
+
     return (
         <nav className="bg-gray-800 p-4">
             <div className="max-w-full mx-auto px-4">
@@ -10,10 +16,15 @@ export default function Navbar() {
                         <span className="text-white text-lg font-semibold">Logo</span>
                     </div>
                     <div className="hidden md:flex">
-                        <Link to='/' className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</Link>
-                        <Link to='/login' className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</Link>
-                        <Link to='/signup' className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Signup</Link>
-                        <Link to='/about' className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</Link>
+                        {pages.filter(p => !p.permissions || checkPermissions(p.permissions, userRoleType)).map(p => (
+                            <Link key={p.route} to={p.route} className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                                {p.title}
+                            </Link>
+                        ))
+                        }
+                        {user &&
+                            <Link className="text-red-500 hover:bg-red-900 hover:text-red-100 px-3 py-2 rounded-md text-sm font-medium" onClick={logout}>Logout</Link>
+                        }
                     </div>
                     <div className="md:hidden flex -mr-2">
                         <button className="text-white focus:outline-none">

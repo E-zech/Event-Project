@@ -102,3 +102,19 @@ Status Code: 400
 Error: Bad Request
 Error Message: Invalid user ID in the URL params.
 
+Date: 28/06/2024
+Time: 12:36:48
+Route: /signup
+Method: POST
+Status Code: 400
+Error: Bad Request
+Error Message: Email already exists.
+
+Date: 28/06/2024
+Time: 13:21:00
+Route: /login
+Method: POST
+Status Code: 401
+Error: Unauthorized
+Error Message: password is incorrect.
+

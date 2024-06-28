@@ -6,13 +6,23 @@ import Router from './Router.jsx';
 import { useNavigate } from 'react-router-dom';
 import Login from './auth/Login';
 import Footer from './components/footer/Footer.jsx';
+import { RoleTypes } from './utils.jsx';
 
 
 export const GeneralContext = createContext();
 
 export default function App() {
   const [user, setUser] = useState();
+  const [userRoleType, setUserRoleType] = useState(RoleTypes.none);
   const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    setUser(null);
+    setUserRoleType(RoleTypes.none)
+    navigate('/');
+    snackbar('You have been successfully logged out');
+  };
 
   useEffect(() => {
     // setLoader(true);
@@ -37,7 +47,8 @@ export default function App() {
           const data = await response.json();
           console.log(data);
           setUser(data);
-          // setUserRoleType(data.roleType);
+          setUserRoleType(data.roleType);
+          console.log(data.roleType)
         } else {
           navigate('/');
           // setLoader(false);
@@ -45,6 +56,7 @@ export default function App() {
       } catch (error) {
         // Handle fetch or JSON parsing errors here
         console.error('Error fetching user data:', error);
+        logout();
         navigate('/');
         // setLoader(false);
       }
@@ -55,7 +67,7 @@ export default function App() {
 
   return (
     <>
-      <GeneralContext.Provider value={{ user, setUser }}>
+      <GeneralContext.Provider value={{ user, setUser, logout, userRoleType, setUserRoleType }}>
         <Navbar />
         <Router />
         <Footer />

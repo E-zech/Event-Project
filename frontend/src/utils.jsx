@@ -36,3 +36,26 @@ export const loginSchema = Joi.object({
         .label('Password')
         .required(),
 }).options({ abortEarly: false });
+
+
+export const RoleTypes = {
+    none: 10, // non-business user 
+    business: 20, // business user
+    admin: 30, // manager/admin
+    master: 40, // developers
+};
+
+export const pages = [
+    { route: '/', title: 'Home' },
+    { route: '/about', title: 'About' },
+    { route: '/signup', title: 'Signup' },
+    { route: '/login', title: 'Login' },
+    { route: '/my-account', title: 'My Account', permissions: [RoleTypes.business, RoleTypes.admin, RoleTypes.master] },
+    { route: '/user-management', title: 'CRM', permissions: [RoleTypes.admin, RoleTypes.master] }, // Custumer Management
+    { route: '/my-events', title: 'My Events', permissions: [RoleTypes.business, RoleTypes.admin, RoleTypes.master] },
+    { route: '/event-management', title: 'EMG', permissions: [RoleTypes.admin, RoleTypes.master] }, // EMG = Event Management
+];
+
+export const checkPermissions = (permissions, userRoleType) => {
+    return permissions.includes(userRoleType);
+}

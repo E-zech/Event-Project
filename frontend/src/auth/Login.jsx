@@ -15,7 +15,7 @@ export default function Login() {
         password: ''
     });
 
-    const { user, setUser } = useContext(GeneralContext);
+    const { user, setUser, userRoleType, setUserRoleType } = useContext(GeneralContext);
 
     const handleLoginChange = (ev) => {
         handleChange(ev, formData, setFormData, errors, setErrors, loginSchema, setIsFormValid)
@@ -41,10 +41,10 @@ export default function Login() {
             const data = await res.json();
             const token = data.token;
             localStorage.token = token;
-            // const decodedToken = jwtDecode(token);
-            //tokenUserId *****
-            // const roleTypeToken = decodedToken.roleType;
+            const decodedToken = jwtDecode(token);
+            const roleTypeToken = decodedToken.roleType;
             setUser(data);
+            setUserRoleType(roleTypeToken);
             console.log(data)
             navigate('/');
 
